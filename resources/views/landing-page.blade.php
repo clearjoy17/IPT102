@@ -49,7 +49,7 @@
     <header>
         <div class="page-content mt-5 " id="text">
             <h1>Welcome to my Spotify account.</h1>
-            <h2>To view my playlists, you can register and then login.</h2>
+            <h2>You can buy album here from your favorite artists.</h2>
         </div>
     </header>
         {{-- <div class="container">

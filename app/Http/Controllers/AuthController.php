@@ -23,7 +23,6 @@ class AuthController extends Controller
             'name' => 'required|string',
             'password' => 'required|string',
             'email' => 'required|email',
-            'phone' => 'required|string',
 
         ]);
 
@@ -32,7 +31,6 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->phone,
             'password' => bcrypt($request->password),
             'remember_token' => $token
         ]);
@@ -79,13 +77,13 @@ class AuthController extends Controller
         $user->email_verified_at = now();
         $user->save();
 
-        Nexmo::message()->send([
-            'to' => $user->phone,
-            'from' => 'sender',
-            'text' => 'You successfully verify your account. You may now login'
-        ]);
+        // Nexmo::message()->send([
+        //     'to' => $user->phone,
+        //     'from' => 'sender',
+        //     'text' => 'You successfully verify your account. You may now login'
+        // ]);
 
-        echo "Message Sent!";
+        // echo "Message Sent!";
 
         return redirect('/login')->with('Message', 'Your account has been verified. You may now login.');
     }
